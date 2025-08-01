@@ -49,7 +49,7 @@ export default function JalurPendakianPage() {
                         src="/trail-map-bansari.png"
                         alt="Jalur Bansari detailed trail map"
                         fill
-                        className="object-cover"
+                        className="object-cover object-center"
                       />
                       <div className="absolute top-3 left-3 md:top-4 md:left-4 bg-white px-2 py-1 md:px-3 md:py-1 rounded text-xs md:text-sm font-medium text-gray-700">
                         Semua Level
@@ -65,7 +65,7 @@ export default function JalurPendakianPage() {
                       pendaki dari pemula hingga berpengalaman.
                     </p>
 
-                    {/* Statistics Grid - No Borders */}
+                    {/* Statistics Grid - All Green */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-6 md:mb-8">
                       <div className="flex items-center space-x-3 bg-green-50 p-3 rounded-lg">
                         <div className="w-8 h-8 md:w-10 md:h-10 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -77,9 +77,9 @@ export default function JalurPendakianPage() {
                         </div>
                       </div>
 
-                      <div className="flex items-center space-x-3 bg-blue-50 p-3 rounded-lg">
-                        <div className="w-8 h-8 md:w-10 md:h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                          <MapPin className="h-4 w-4 md:h-5 md:w-5 text-blue-600" />
+                      <div className="flex items-center space-x-3 bg-green-50 p-3 rounded-lg">
+                        <div className="w-8 h-8 md:w-10 md:h-10 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                          <MapPin className="h-4 w-4 md:h-5 md:w-5 text-green-600" />
                         </div>
                         <div>
                           <div className="text-lg md:text-xl font-bold text-black">7.3 km</div>
@@ -87,9 +87,9 @@ export default function JalurPendakianPage() {
                         </div>
                       </div>
 
-                      <div className="flex items-center space-x-3 bg-purple-50 p-3 rounded-lg">
-                        <div className="w-8 h-8 md:w-10 md:h-10 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                          <Users className="h-4 w-4 md:h-5 md:w-5 text-purple-600" />
+                      <div className="flex items-center space-x-3 bg-green-50 p-3 rounded-lg">
+                        <div className="w-8 h-8 md:w-10 md:h-10 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                          <Users className="h-4 w-4 md:h-5 md:w-5 text-green-600" />
                         </div>
                         <div>
                           <div className="text-lg md:text-xl font-bold text-black">8 Pos</div>
@@ -97,9 +97,9 @@ export default function JalurPendakianPage() {
                         </div>
                       </div>
 
-                      <div className="flex items-center space-x-3 bg-orange-50 p-3 rounded-lg">
-                        <div className="w-8 h-8 md:w-10 md:h-10 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                          <Mountain className="h-4 w-4 md:h-5 md:w-5 text-orange-600" />
+                      <div className="flex items-center space-x-3 bg-green-50 p-3 rounded-lg">
+                        <div className="w-8 h-8 md:w-10 md:h-10 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                          <Mountain className="h-4 w-4 md:h-5 md:w-5 text-green-600" />
                         </div>
                         <div>
                           <div className="text-lg md:text-xl font-bold text-black">3,153 mdpl</div>

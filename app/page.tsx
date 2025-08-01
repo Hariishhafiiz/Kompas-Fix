@@ -36,9 +36,6 @@ export default function HomePage() {
             <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-green-200">
               Gunung Sindoro via Bansari
             </h2>
-            <p className="text-lg md:text-xl lg:text-2xl max-w-3xl mx-auto leading-relaxed opacity-90">
-              Nikmati pengalaman mendaki yang aman dan berkesan bersama KOMPAS Bansari
-            </p>
           </div>
         </div>
       </section>
@@ -126,7 +123,12 @@ export default function HomePage() {
                 <CardContent className="p-0">
                   {/* Trail Image */}
                   <div className="relative h-48 md:h-64 rounded-t-lg overflow-hidden">
-                    <Image src="/trail-map-bansari.png" alt="Jalur Bansari trail view" fill className="object-cover" />
+                    <Image
+                      src="/trail-map-bansari.png"
+                      alt="Jalur Bansari trail view"
+                      fill
+                      className="object-cover object-center"
+                    />
                     <Badge className="absolute top-3 right-3 md:top-4 md:right-4 bg-gray-600 text-white text-xs">
                       Semua Level
                     </Badge>
