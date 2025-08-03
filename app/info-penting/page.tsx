@@ -226,11 +226,11 @@ export default function InfoPentingPage() {
                       <td className="p-4 text-right font-semibold text-green-600">Rp 20.000</td>
                     </tr>
                     <tr>
-                      <td className="p-4 text-gray-700">Ojek Pagi</td>
+                      <td className="p-4 text-gray-700">Ojek Pagi (06.00 - 09.00)</td>
                       <td className="p-4 text-right font-semibold text-green-600">Rp 30.000</td>
                     </tr>
                     <tr>
-                      <td className="p-4 text-gray-700">Ojek Malam</td>
+                      <td className="p-4 text-gray-700">Ojek Malam (21.00 - 06.00)</td>
                       <td className="p-4 text-right font-semibold text-green-600">Rp 35.000</td>
                     </tr>
                   </tbody>

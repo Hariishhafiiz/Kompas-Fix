@@ -23,10 +23,10 @@ export default function TentangKamiPage() {
         <div className="relative z-10 flex items-center justify-center h-full text-center text-white px-4">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight">
-              Tentang KOMPAS Sindoro
+              Tentang KOMPAS Bansari
             </h1>
             <p className="text-lg md:text-xl lg:text-2xl max-w-3xl mx-auto leading-relaxed opacity-90">
-              Komunitas Pencinta Alam Sindoro - Berdedikasi untuk keselamatan pendaki dan kelestarian alam
+              Komunitas Peduli Alam Sindoro - Berdedikasi untuk keselamatan pendaki dan kelestarian alam
             </p>
           </div>
         </div>
@@ -42,18 +42,17 @@ export default function TentangKamiPage() {
                 <h2 className="text-3xl font-bold text-gray-800 mb-6">Sejarah KOMPAS</h2>
                 <div className="space-y-4 text-gray-600 leading-relaxed">
                   <p>
-                    KOMPAS (Komunitas Pencinta Alam Sindoro) didirikan pada tahun 2009 oleh sekelompok pencinta alam
-                    yang memiliki kepedulian tinggi terhadap kelestarian pendaki dan kelestarian Gunung Sindoro.
+                    KOMPAS (Komunitas Peduli Alam Sindoro) didirikan pada tahun 2001 oleh sekelompok pemuda yang memiliki kecintaan terhadap kegiatan alam bebas, 
+                    khususnya pendakian gunung. Berawal dari semangat kebersamaan dan kepedulian terhadap keselamatan pendaki serta kelestarian alam, mereka berinisiatif 
+                    membentuk sebuah organisasi yang dapat mengelola jalur pendakian secara profesional dan bertanggung jawab
                   </p>
                   <p>
-                    Berawal dari keprihatinan terhadap banyaknya kecelakaan pendakian dan kerusakan lingkungan, para
-                    pendiri KOMPAS berinisiatif untuk membentuk organisasi yang dapat mengelola jalur pendakian secara
-                    profesional dan bertanggung jawab.
+                    kemudian berkembang menjadi organisasi yang secara resmi mengelola jalur pendakian Gunung Sindoro via Bansari. Tidak hanya berfokus pada aspek pendakian, 
+                    KOMPAS juga aktif dalam berbagai kegiatan sosial kemasyarakatan serta terlibat dalam operasi SAR (Search and Rescue) guna membantu penanganan kondisi darurat di wilayah pendakian.
                   </p>
                   <p>
-                    Seiring berjalannya waktu, KOMPAS berkembang menjadi organisasi resmi yang diakui oleh pemerintah
-                    daerah dan menjadi rujukan utama bagi para pendaki yang ingin menaklukkan Gunung Sindoro dengan
-                    aman.
+                    Seiring berjalannya waktu, eksistensi KOMPAS semakin diakui, baik oleh para pendaki maupun pemerintah daerah, sebagai mitra utama dalam mewujudkan pendakian yang aman, 
+                    tertib, dan ramah lingkungan di Gunung Sindoro.
                   </p>
                 </div>
               </Card>
@@ -146,9 +145,9 @@ export default function TentangKamiPage() {
                 <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Users className="h-6 w-6 text-green-600" />
                 </div>
-                <div className="text-3xl font-bold text-green-600 mb-2">15+</div>
+                <div className="text-3xl font-bold text-green-600 mb-2">24+</div>
                 <h3 className="font-semibold text-gray-800 mb-2">Tahun Pengalaman</h3>
-                <p className="text-sm text-gray-600">Melayani pendaki sejak 2009</p>
+                <p className="text-sm text-gray-600">Melayani pendaki sejak 2001</p>
               </CardContent>
             </Card>
 

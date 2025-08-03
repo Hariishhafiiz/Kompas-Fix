@@ -60,12 +60,12 @@ export function Footer() {
             <h3 className="font-semibold text-lg mb-4">Kontak</h3>
             <div className="space-y-3">
               <Link
-                href="https://wa.me/6281774174995"
+                href="https://wa.me/6281228147612"
                 target="_blank"
                 className="flex items-center space-x-2 text-green-100 hover:text-white transition-colors"
               >
                 <MessageCircle className="h-4 w-4" />
-                <span>WhatsApp: +62 817-7417-4995</span>
+                <span>WhatsApp: +62 812-2814-7612</span>
               </Link>
               <Link
                 href="mailto:info@kompasbansari.com"

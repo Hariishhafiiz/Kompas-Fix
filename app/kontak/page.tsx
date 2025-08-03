@@ -29,6 +29,7 @@ export default function KontakPage() {
       </section>
 
       {/* Contact Information */}
+      
       <section className="py-16 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="grid lg:grid-cols-2 gap-12">
@@ -36,6 +37,37 @@ export default function KontakPage() {
             <div>
               <h2 className="text-2xl font-bold text-gray-800 mb-8">📞 Telepon & WhatsApp</h2>
               <div className="space-y-6">
+                <Card className="border border-gray-200 shadow-lg hover:shadow-xl transition-shadow">
+                  <CardContent className="p-6">
+                    <div className="flex items-center space-x-4 mb-4">
+                      <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                        <Phone className="h-6 w-6 text-green-600" />
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-gray-800">Ivan</h3>
+                        <p className="text-gray-600 text-sm">Koordinator Utama</p>
+                      </div>
+                    </div>
+                    <div className="flex flex-col sm:flex-row gap-3">
+                      <Link href="tel:+6281228147612" className="flex-1">
+                        <Button
+                          variant="outline"
+                          className="w-full border-green-600 text-green-600 hover:bg-green-50 bg-transparent"
+                        >
+                          <Phone className="h-4 w-4 mr-2" />
+                          +62 812-2814-7612
+                        </Button>
+                      </Link>
+                      <Link href="https://wa.me/6281228147612" target="_blank" className="flex-1">
+                        <Button className="w-full bg-green-600 hover:bg-green-700">
+                          <MessageCircle className="h-4 w-4 mr-2" />
+                          WhatsApp
+                        </Button>
+                      </Link>
+                    </div>
+                  </CardContent>
+                </Card>
+
                 <Card className="border border-gray-200 shadow-lg hover:shadow-xl transition-shadow">
                   <CardContent className="p-6">
                     <div className="flex items-center space-x-4 mb-4">
@@ -70,8 +102,8 @@ export default function KontakPage() {
                 <Card className="border border-gray-200 shadow-lg hover:shadow-xl transition-shadow">
                   <CardContent className="p-6">
                     <div className="flex items-center space-x-4 mb-4">
-                      <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                        <Phone className="h-6 w-6 text-blue-600" />
+                      <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                        <Phone className="h-6 w-6 text-green-600" />
                       </div>
                       <div>
                         <h3 className="font-bold text-gray-800">Sugeng</h3>
@@ -82,14 +114,14 @@ export default function KontakPage() {
                       <Link href="tel:+6285752323195" className="flex-1">
                         <Button
                           variant="outline"
-                          className="w-full border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent"
+                          className="w-full border-green-600 text-green-600 hover:bg-green-50 bg-transparent"
                         >
                           <Phone className="h-4 w-4 mr-2" />
                           +62 857-5232-3195
                         </Button>
                       </Link>
                       <Link href="https://wa.me/6285752323195" target="_blank" className="flex-1">
-                        <Button className="w-full bg-blue-600 hover:bg-blue-700">
+                        <Button className="w-full bg-green-600 hover:bg-blue-700">
                           <MessageCircle className="h-4 w-4 mr-2" />
                           WhatsApp
                         </Button>

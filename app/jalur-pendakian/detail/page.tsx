@@ -1,7 +1,10 @@
+"use client"
+
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Clock, MapPin, Mountain, Droplets, AlertTriangle, Camera, Tent, Phone } from "lucide-react"
+import { Clock, MapPin, Mountain, Droplets, AlertTriangle, Camera, Tent, Phone, X } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -12,15 +15,16 @@ const trailSegments = [
     elevation: "1.200 mdpl",
     timeFromPrevious: "0 menit",
     distanceFromBasecamp: "0 km",
-    walkingTime: "2 jam (jalan kaki) / bisa naik ojek",
+    walkingTime: "60-90 menit (jalan kaki) / bisa naik ojek",
     elevationGain: "1.200 mdpl",
     description:
       "Titik awal pendakian dengan fasilitas lengkap untuk persiapan. Bisa naik ojek dari basecamp ke Pos 1.",
-    facilities: ["Parkir", "Toilet", "Warung", "Pos Registrasi", "Mushola", "Ojek"],
+    facilities: ["Parkir", "Toilet", "Pos Registrasi", "Ojek"],
     tips: "Pastikan registrasi dan cek peralatan di sini. Biaya ojek: Rp 30.000 (06.00-21.00) / Rp 35.000 (21.00-06.00).",
     campingCapacity: null,
     waterSource: false,
     photoSpot: false,
+    image: "/trail-map-bansari.png",
   },
   {
     id: "pos1",
@@ -28,14 +32,15 @@ const trailSegments = [
     elevation: "1.576 mdpl",
     timeFromPrevious: "60-90 menit",
     distanceFromBasecamp: "3.41 km",
-    walkingTime: "60-90 menit ke pos berikutnya",
-    elevationGain: "376 mdpl",
+    walkingTime: "60-90 menit",
+    elevationGain: "1576 mdpl",
     description: "Melewati permukiman dan kebun tembakau. Area transisi dari pemukiman menuju hutan.",
     facilities: ["Area Istirahat"],
     tips: "Pos pertama setelah melewati area permukiman. Pastikan stamina masih terjaga untuk perjalanan selanjutnya.",
     campingCapacity: null,
     waterSource: false,
     photoSpot: false,
+    image: "/Pos1.jpeg",
   },
   {
     id: "pos2",
@@ -43,14 +48,15 @@ const trailSegments = [
     elevation: "1.886 mdpl",
     timeFromPrevious: "60-90 menit",
     distanceFromBasecamp: "4.31 km",
-    walkingTime: "45-60 menit ke pos berikutnya",
-    elevationGain: "310 mdpl",
-    description: "Perkebunan kopi dengan jalan tanah. Pemandangan kebun kopi yang indah.",
+    walkingTime: "45-60 menit",
+    elevationGain: "1886 mdpl",
+    description: "Vegetasi hutan yang heterogen dan semak-semak. Lokasi ini dapat digunakan untuk mendirikan 2-3 tenda",
     facilities: ["Area Istirahat", "Tempat Berteduh"],
     tips: "Nikmati pemandangan perkebunan kopi. Jalan mulai menanjak dengan medan tanah.",
     campingCapacity: "2-3 tenda",
     waterSource: false,
     photoSpot: true,
+    image: "/Pos2.jpeg",
   },
   {
     id: "pos3",
@@ -58,14 +64,15 @@ const trailSegments = [
     elevation: "2.171 mdpl",
     timeFromPrevious: "45-60 menit",
     distanceFromBasecamp: "4.93 km",
-    walkingTime: "30-45 menit ke pos berikutnya",
-    elevationGain: "285 mdpl",
-    description: "Hutan alkasiah & cemara. Ada sungai saat musim hujan. Area hutan yang rimbun.",
+    walkingTime: "30-45 menit",
+    elevationGain: "2171 mdpl",
+    description: "Vegetasi pohon alkasiah & pohon cemara brindil. Tersedia aliran sungai saat musim penghujan.",
     facilities: ["Area Istirahat", "Tempat Berteduh"],
     tips: "Sumber air tersedia saat musim hujan. Area yang bagus untuk istirahat panjang.",
     campingCapacity: "5-10 tenda",
     waterSource: true,
     photoSpot: true,
+    image: "/Pos3.jpeg",
   },
   {
     id: "pos4",
@@ -73,66 +80,70 @@ const trailSegments = [
     elevation: "2.315 mdpl",
     timeFromPrevious: "30-45 menit",
     distanceFromBasecamp: "5.27 km",
-    walkingTime: "30 menit ke shelter ojek",
-    elevationGain: "144 mdpl",
+    walkingTime: "30 menit ke shelter ojek dan shelter ojek ke Pos 5 90-120 menit",
+    elevationGain: "2315 mdpl",
     description: "Hutan rapat dengan trek menanjak. Vegetasi hutan yang lebat dan jalur yang menantang.",
     facilities: ["Area Istirahat"],
     tips: "Trek mulai menanjak tajam. Persiapkan stamina untuk pendakian yang lebih berat.",
     campingCapacity: "1-2 tenda",
     waterSource: false,
     photoSpot: false,
+    image: "/Pos4.jpeg",
   },
-  {
-    id: "shelter-ojek",
-    name: "Shelter Ojek",
-    elevation: "2.400 mdpl",
-    timeFromPrevious: "30 menit",
-    distanceFromBasecamp: "5.61 km",
-    walkingTime: "90-120 menit ke pos berikutnya",
-    elevationGain: "85 mdpl",
-    description: "Trek tanah dengan vegetasi khas Sindoro. Shelter terakhir sebelum memasuki area terbuka.",
-    facilities: ["Shelter", "Area Istirahat"],
-    tips: "Shelter terakhir sebelum area terbuka. Persiapkan diri untuk medan yang lebih terbuka.",
-    campingCapacity: "2 tenda",
-    waterSource: false,
-    photoSpot: false,
-  },
+  // {
+  //   id: "shelter-ojek",
+  //   name: "Shelter Ojek",
+  //   elevation: "2.400 mdpl",
+  //   timeFromPrevious: "30 menit",
+  //   distanceFromBasecamp: "5.61 km",
+  //   walkingTime: "90-120 menit ke pos berikutnya",
+  //   elevationGain: "85 mdpl",
+  //   description: "Trek tanah dengan vegetasi khas Sindoro. Shelter terakhir sebelum memasuki area terbuka.",
+  //   facilities: ["Shelter", "Area Istirahat"],
+  //   tips: "Shelter terakhir sebelum area terbuka. Persiapkan diri untuk medan yang lebih terbuka.",
+  //   campingCapacity: "2 tenda",
+  //   waterSource: false,
+  //   photoSpot: false,
+  //   image: "/Pos5.jpeg",
+  // },
   {
     id: "pos5",
     name: "Pos 5",
     elevation: "2.715 mdpl",
     timeFromPrevious: "90-120 menit",
-    distanceFromBasecamp: "6.37 km",
+    distanceFromBasecamp: "6.03 km",
     walkingTime: "90-120 menit ke pos berikutnya",
-    elevationGain: "315 mdpl",
-    description: "Batas vegetasi dengan panorama 7 gunung. Pemandangan spektakuler mulai terlihat.",
+    elevationGain: "2715 mdpl",
+    description: "Batas vegetasi dengan panorama 7 gunung. Pemandangan indah mulai terlihat.",
     facilities: ["Area Istirahat", "Spot Foto"],
     tips: "Spot foto terbaik untuk panorama 7 gunung. Area sunrise/sunset yang menakjubkan.",
     campingCapacity: "5-10 tenda",
     waterSource: false,
     photoSpot: true,
+    image: "/Pos5.jpeg",
   },
   {
     id: "pos6",
     name: "Pos 6",
     elevation: "3.050 mdpl",
     timeFromPrevious: "90-120 menit",
-    distanceFromBasecamp: "7.10 km",
+    distanceFromBasecamp: "6.76 km",
     walkingTime: "10-15 menit ke puncak",
-    elevationGain: "335 mdpl",
-    description: "Trek curam dengan savana terbuka. Area terbuka dengan pemandangan luas sebelum puncak.",
+    elevationGain: "3050 mdpl",
+    description: "Trek menanjak dan kontur medan batuan krikil serta savana yang luas.",
     facilities: ["Area Istirahat"],
     tips: "Trek terakhir sebelum puncak. Tidak bisa camping di area ini. Persiapkan untuk final assault.",
     campingCapacity: "Tidak bisa camp",
     waterSource: false,
     photoSpot: true,
+    image: "/Pos6.jpeg",
   },
   {
     id: "puncak",
     name: "Puncak Sindoro",
     elevation: "3.153 mdpl",
     timeFromPrevious: "10-15 menit",
-    distanceFromBasecamp: "7.30 km",
+    distanceFromBasecamp: "6.96 km",
     walkingTime: "Puncak tercapai!",
     elevationGain: "103 mdpl",
     description: "Batuan terjal dengan bunga edelweis. Puncak Gunung Sindoro dengan pemandangan 360 derajat.",
@@ -141,10 +152,13 @@ const trailSegments = [
     campingCapacity: null,
     waterSource: false,
     photoSpot: true,
+    image: "/PuncakSindoro.JPG",
   },
 ]
 
 export default function DetailLengkapPage() {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null)
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -171,24 +185,46 @@ export default function DetailLengkapPage() {
         </div>
       </section>
 
-      {/* Trail Statistics - No Borders */}
+      {/* Image Modal */}
+      {selectedImage && (
+        <div className="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4">
+          <div className="relative max-w-4xl w-full max-h-[90vh] bg-white rounded-lg overflow-hidden">
+            <button
+              onClick={() => setSelectedImage(null)}
+              className="absolute top-4 right-4 z-10 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100"
+            >
+              <X className="h-6 w-6 text-gray-600" />
+            </button>
+            <div className="relative h-[80vh]">
+              <Image
+                src={selectedImage || "/placeholder.svg"}
+                alt="Detail gambar pos pendakian"
+                fill
+                className="object-contain"
+              />
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Trail Statistics - All Green */}
       <section className="py-8 md:py-12 px-4 bg-gray-50">
         <div className="container mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-4xl mx-auto">
             <div className="text-center bg-green-50 p-3 md:p-6 rounded-lg">
-              <div className="text-xl md:text-3xl font-bold text-green-600 mb-1 md:mb-2">7.3 km</div>
+              <div className="text-xl md:text-3xl font-bold text-green-600 mb-1 md:mb-2">6.9 km</div>
               <div className="text-xs md:text-base text-gray-600">Total Jarak</div>
             </div>
-            <div className="text-center bg-blue-50 p-3 md:p-6 rounded-lg">
-              <div className="text-xl md:text-3xl font-bold text-blue-600 mb-1 md:mb-2">6-8 jam</div>
+            <div className="text-center bg-green-50 p-3 md:p-6 rounded-lg">
+              <div className="text-xl md:text-3xl font-bold text-green-600 mb-1 md:mb-2">6-8 jam</div>
               <div className="text-xs md:text-base text-gray-600">Durasi</div>
             </div>
-            <div className="text-center bg-purple-50 p-3 md:p-6 rounded-lg">
-              <div className="text-xl md:text-3xl font-bold text-purple-600 mb-1 md:mb-2">8 Pos</div>
+            <div className="text-center bg-green-50 p-3 md:p-6 rounded-lg">
+              <div className="text-xl md:text-3xl font-bold text-green-600 mb-1 md:mb-2">6 Pos</div>
               <div className="text-xs md:text-base text-gray-600">Istirahat</div>
             </div>
-            <div className="text-center bg-orange-50 p-3 md:p-6 rounded-lg">
-              <div className="text-xl md:text-3xl font-bold text-orange-600 mb-1 md:mb-2">3.153 mdpl</div>
+            <div className="text-center bg-green-50 p-3 md:p-6 rounded-lg">
+              <div className="text-xl md:text-3xl font-bold text-green-600 mb-1 md:mb-2">3.153 mdpl</div>
               <div className="text-xs md:text-base text-gray-600">Ketinggian</div>
             </div>
           </div>
@@ -213,14 +249,27 @@ export default function DetailLengkapPage() {
               >
                 <CardContent className="p-0">
                   <div className="flex flex-col lg:grid lg:grid-cols-2 gap-0">
-                    {/* Image/Map Placeholder - Mobile First */}
-                    <div className="relative h-48 md:h-64 lg:h-80 order-1 lg:order-1">
+                    {/* Image/Map - Centered and Clickable */}
+                    <div
+                      className="relative h-48 md:h-64 lg:h-80 order-1 lg:order-1 cursor-pointer group"
+                      onClick={() => setSelectedImage(segment.image)}
+                    >
                       <Image
-                        src="/trail-map-bansari.png"
+                        src={segment.image || "/placeholder.svg"}
                         alt={`${segment.name} - Jalur Bansari`}
                         fill
-                        className="object-cover"
+                        className="object-cover object-center transition-transform duration-300 group-hover:scale-105"
                       />
+
+                      {/* Hover overlay */}
+                      <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+                        <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <div className="bg-white rounded-full p-3 shadow-lg">
+                            <Camera className="h-6 w-6 text-gray-700" />
+                          </div>
+                        </div>
+                      </div>
+
                       <Badge
                         className={`absolute top-3 left-3 md:top-4 md:left-4 text-xs ${
                           segment.id === "basecamp"
