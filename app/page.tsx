@@ -30,6 +30,9 @@ export default function HomePage() {
               <br />
               <span className="text-green-300">Bansari</span>
             </h1>
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-green-200">
+              Gunung Sindoro via Bansari
+            </h2>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
               <Link href="/jalur-pendakian">
                 <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white px-8 py-3">
