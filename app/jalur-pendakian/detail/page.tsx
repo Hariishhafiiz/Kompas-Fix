@@ -24,7 +24,7 @@ const trailSegments = [
     campingCapacity: null,
     waterSource: false,
     photoSpot: false,
-    image: "/trail-map-bansari.png",
+    image: "/BasecampKompas.jpeg",
   },
   {
     id: "pos1",
